@@ -1,0 +1,1 @@
+/Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/target/wasm32v1-none/release/football_field_rental_wasm.wasm: /Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/src/football_field_rental.rs /Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/wasm/src/lib.rs

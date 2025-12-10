@@ -1,0 +1,260 @@
+{
+    "buildInfo": {
+        "rustc": {
+            "version": "1.90.0",
+            "commitHash": "1159e78c4747b02ef996e55082b704c09b970588",
+            "commitDate": "2025-09-14",
+            "channel": "Stable",
+            "short": "rustc 1.90.0 (1159e78c4 2025-09-14)"
+        },
+        "contractCrate": {
+            "name": "football-field-rental",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "multiversx-sc",
+            "version": "0.62.1"
+        }
+    },
+    "name": "FootballFieldRental",
+    "constructor": {
+        "inputs": [
+            {
+                "name": "manager",
+                "type": "Address"
+            },
+            {
+                "name": "court_cost",
+                "type": "BigUint"
+            }
+        ],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "createFootballSlot",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "EGLD"
+            ],
+            "inputs": [
+                {
+                    "name": "start",
+                    "type": "u64"
+                },
+                {
+                    "name": "end",
+                    "type": "u64"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "Slot"
+                }
+            ]
+        },
+        {
+            "name": "participateToFootballSlot",
+            "mutability": "mutable",
+            "payableInTokens": [
+                "EGLD"
+            ],
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "cancelFootballSlot",
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": []
+        },
+        {
+            "name": "setFootballFieldManager",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "new_manager",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "payCourt",
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
+            "name": "setFootballCourtCost",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "new_cost",
+                    "type": "BigUint"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "confirmSlot",
+            "mutability": "mutable",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "ReservationStatus"
+                }
+            ]
+        },
+        {
+            "name": "getSlotStatus",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "tuple<Option<Slot>,List<Address>,BigUint,ReservationStatus>"
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "identifier": "slot_reserved",
+            "inputs": [
+                {
+                    "name": "payer",
+                    "type": "Address",
+                    "indexed": true
+                },
+                {
+                    "name": "data",
+                    "type": "tuple<u64,u64,BigUint>"
+                }
+            ]
+        },
+        {
+            "identifier": "slot_confirmed",
+            "inputs": [
+                {
+                    "name": "payer",
+                    "type": "Address",
+                    "indexed": true
+                },
+                {
+                    "name": "data",
+                    "type": "tuple<()>"
+                }
+            ]
+        },
+        {
+            "identifier": "slot_cancelled",
+            "inputs": [
+                {
+                    "name": "payer",
+                    "type": "Address",
+                    "indexed": true
+                },
+                {
+                    "name": "data",
+                    "type": "tuple<()>"
+                }
+            ]
+        },
+        {
+            "identifier": "manager_changed",
+            "inputs": [
+                {
+                    "name": "new_manager",
+                    "type": "Address",
+                    "indexed": true
+                },
+                {
+                    "name": "data",
+                    "type": "tuple<()>"
+                }
+            ]
+        },
+        {
+            "identifier": "court_paid",
+            "inputs": [
+                {
+                    "name": "manager",
+                    "type": "Address",
+                    "indexed": true
+                },
+                {
+                    "name": "data",
+                    "type": "tuple<BigUint>"
+                }
+            ]
+        },
+        {
+            "identifier": "court_cost_updated",
+            "inputs": [
+                {
+                    "name": "owner",
+                    "type": "Address",
+                    "indexed": true
+                },
+                {
+                    "name": "data",
+                    "type": "tuple<BigUint>"
+                }
+            ]
+        }
+    ],
+    "esdtAttributes": [],
+    "hasCallback": false,
+    "types": {
+        "ReservationStatus": {
+            "type": "enum",
+            "variants": [
+                {
+                    "name": "Pending",
+                    "discriminant": 0
+                },
+                {
+                    "name": "Confirmed",
+                    "discriminant": 1
+                },
+                {
+                    "name": "Cancelled",
+                    "discriminant": 2
+                }
+            ]
+        },
+        "Slot": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "start",
+                    "type": "u64"
+                },
+                {
+                    "name": "end",
+                    "type": "u64"
+                },
+                {
+                    "name": "payer",
+                    "type": "Address"
+                },
+                {
+                    "name": "amount",
+                    "type": "BigUint"
+                },
+                {
+                    "name": "confirmed",
+                    "type": "ReservationStatus"
+                }
+            ]
+        }
+    }
+}

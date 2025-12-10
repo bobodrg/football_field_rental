@@ -1,0 +1,5 @@
+/Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/target/debug/deps/football_field_rental_scenario_go_test-bf7942ad32e13b74.d: tests/football_field_rental_scenario_go_test.rs
+
+/Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/target/debug/deps/football_field_rental_scenario_go_test-bf7942ad32e13b74: tests/football_field_rental_scenario_go_test.rs
+
+tests/football_field_rental_scenario_go_test.rs:

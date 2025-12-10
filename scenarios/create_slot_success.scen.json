@@ -1,0 +1,32 @@
+{
+  "name": "create_slot_success",
+  "include": "base_setup.scen.json",
+  "steps": [
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:user1",
+        "to": "sc:football",
+        "egldValue": "1000000000000000000",
+        "function": "createFootballSlot",
+        "arguments": [1000, 2000],
+        "gasLimit": "10000000"
+      },
+      "expect": {
+        "status": "",
+        "logs": [
+          {
+            "address": "sc:football",
+            "identifier": "slot_reserved",
+            "topics": [
+              "address:user1",
+              "0x00000003e8",
+              "0x00000007d0",
+              "0x0de0b6b3a7640000"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

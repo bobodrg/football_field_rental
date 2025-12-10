@@ -1,0 +1,29 @@
+{
+  "name": "participate_success",
+  "include": "create_slot_success.scen.json",
+  "steps": [
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:user2",
+        "to": "sc:football",
+        "function": "participateToFootballSlot",
+        "egldValue": "1000000000000000000",
+        "arguments": [],
+        "gasLimit": "10000000"
+      },
+      "expect": {
+        "status": "",
+        "logs": [
+          {
+            "address": "sc:football",
+            "identifier": "slot_reserved",
+            "topics": [
+              "address:user2"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

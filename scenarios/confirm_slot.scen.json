@@ -1,0 +1,21 @@
+{
+  "name": "confirm_slot",
+  "include": "create_slot_success.scen.json",
+  "steps": [
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:owner",
+        "to": "sc:football",
+        "function": "confirmSlot",
+        "gasLimit": "10000000"
+      },
+      "expect": {
+        "status": "",
+        "logs": [
+          { "identifier": "slot_confirmed" }
+        ]
+      }
+    }
+  ]
+}

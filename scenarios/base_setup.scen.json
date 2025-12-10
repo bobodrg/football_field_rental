@@ -1,0 +1,40 @@
+{
+  "name": "base_setup",
+  "steps": [
+    {
+      "step": "setState",
+      "accounts": {
+        "address:owner": { "nonce": "1", "balance": "10_000_000_000_000_000_000" },
+        "address:user1": { "nonce": "0", "balance": "10_000_000_000_000_000_000" },
+        "address:user2": { "nonce": "0", "balance": "10_000_000_000_000_000_000" }
+      },
+      "newAddresses": [
+        {
+          "creatorAddress": "address:owner",
+          "creatorNonce": "1",
+          "newAddress": "sc:football"
+        }
+      ]
+    },
+    {
+      "step": "scDeploy",
+      "tx": {
+        "from": "address:owner",
+        "contractCode": "mxsc:../output/football-field-rental.mxsc.json",
+        "arguments": [
+          "address:owner",
+          "1000000000000000000"
+        ],
+        "gasLimit": "5000000",
+        "gasPrice": "0"
+      },
+      "expect": {
+        "status": "",
+        "out": [],
+        "gas": "*",
+        "refund": "*",
+        "logs": []
+      }
+    }
+  ]
+}

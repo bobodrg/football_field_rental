@@ -1,0 +1,17 @@
+{
+  "name": "get_slot_status",
+  "include": "participate_success.scen.json",
+  "steps": [
+    {
+      "step": "scQuery",
+      "tx": {
+        "to": "sc:football",
+        "function": "getSlotStatus"
+      },
+      "expect": {
+        "status": "",
+        "out": "*"
+      }
+    }
+  ]
+}

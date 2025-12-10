@@ -1,0 +1,31 @@
+{
+  "name": "cancel_slot",
+  "include": "create_slot_success.scen.json",
+  "steps": [
+    {
+      "step": "scCall",
+      "tx": {
+        "from": "address:user1",
+        "to": "sc:football",
+        "function": "cancelFootballSlot",
+        "gasLimit": "10000000"
+      },
+      "expect": {
+        "status": "",
+        "logs": [
+          {
+            "address": "sc:football",
+            "identifier": "slot_cancelled"
+          }
+        ]
+      }
+    },
+    {
+      "step": "checkState",
+      "accounts": {
+        "address:user1": { "balance": "*" },
+        "sc:football": { "balance": "0" }
+      }
+    }
+  ]
+}

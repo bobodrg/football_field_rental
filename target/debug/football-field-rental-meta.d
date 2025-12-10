@@ -1,0 +1,1 @@
+/Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/target/debug/football-field-rental-meta: /Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/meta/src/main.rs /Users/bogdandragomir/Documents/Master/SEM1/Blockchain/football-field-rental/src/football_field_rental.rs
